@@ -245,6 +245,49 @@ We can comparestructural variants among different samples, among same samples fr
     #run this perl script to get the matrix overlap file, which we can use in R to create Venn or upset plot
     perl -ne 'print "$1\n" if /SUPP_VEC=([^,;]+)/' output.merged.vcf | \
     sed -e 's/\(.\)/\1 /g' > matrix.overlap.txt
+    
+    
+    #in R
+    
+    setwd ("working_Dir")
+    
+    library(readxl)
+    library(ggVennDiagram)
+    library(UpSetR)
+    
+    matrix=read.table("matrix.oerlap.txt", header=T)
+    
+    #plot the Venn and upset diagram
+    #Convert dataframe into list
+    set_list <- list(
+      X1 = which(matrix$X1 == 1),
+      X2 = which(matrix$X2 == 1),
+      X3  = which(matrix$X3 == 1),
+      X4  = which(matrix$X4 == 1),
+      X5 = which(Smatrix$X5 == 1)
+    )
+
+    ggVennDiagram(set_list) +
+      scale_fill_gradient(low = "white", high = "blue") +
+      ggtitle("Title") +
+      theme(plot.title = element_text(size = 32, face = "bold",
+      hjust=0.5, margin=margin(0,0,30,0)))
+
+    upset(matrix, 
+      sets = c("X1", "X2", "X3", "X4", "X5"),
+      sets.bar.color = "blue",
+      order.by = "freq",
+      mainbar.y.label = "Intersection Size",
+      sets.x.label = "Set Size",
+      text.scale = 1.5)
+    ```
+
+ <br>
+ 
+ 
+ 
+ 
+    
 
 
 
