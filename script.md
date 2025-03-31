@@ -143,14 +143,13 @@ We have tried different filtering criteria.
 
 These are the output details of truvari bench:
 
-![truvari_bench](https://github.com/user-attachments/assets/bf5fd6f8-7fad-4842-a0c6-163f8385936a)
-
-
+![truvari_bench](https://hackmd.io/_uploads/BkLo91Z6Jl.png)
 
 <br>
 
-2. Filter based on QC matrices in sniffles output using bcftools
-    Example below filter variants that are "PASS", "PRECISE", and with allele frequency >=0.4
+2. Filter based on QC matrices in sniffles output using bcftools.
+
+    Example below describe filtering for variants that are "PASS", "PRECISE", and with allele frequency >=0.4
     
     ```
     module purge
