@@ -143,7 +143,8 @@ We have tried different filtering criteria.
 
 These are the output details of truvari bench:
 
-![truvari_bench](https://hackmd.io/_uploads/BkLo91Z6Jl.png)
+![image](https://github.com/user-attachments/assets/018a2d06-f765-41a2-9144-dfa21de621da)
+
 
 <br>
 
